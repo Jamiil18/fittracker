@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <body
+    style="
+      margin: 0;
+      padding: 24px;
+      background: #f2f3f5;
+      font-family: -apple-system, Roboto, 'Segoe UI', Arial, sans-serif;
+      color: #16181c;
+    "
+  >
+    <div
+      style="
+        max-width: 480px;
+        margin: 0 auto;
+        background: #ffffff;
+        border-radius: 8px;
+        padding: 24px;
+      "
+    >
+      <p style="margin: 0 0 16px; font-size: 17px; line-height: 22px">
+        Enter this code in FitTracker to reset your password:
+      </p>
+      <p
+        style="
+          margin: 0 0 16px;
+          font-size: 32px;
+          line-height: 38px;
+          font-weight: 600;
+          letter-spacing: 4px;
+          font-variant-numeric: tabular-nums;
+        "
+      >
+        {{ .Token }}
+      </p>
+      <p style="margin: 0; font-size: 15px; line-height: 20px; color: #5f6670">
+        The code expires in 1 hour. If you didn't ask to reset your password, you can ignore this
+        email and your password won't change.
+      </p>
+    </div>
+  </body>
+</html>
