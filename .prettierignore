@@ -1,0 +1,4 @@
+# Hand-written documents keep their own formatting.
+*.md
+package-lock.json
+assets/

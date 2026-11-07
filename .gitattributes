@@ -1,0 +1,7 @@
+# Store and check out text files with LF line endings on every OS, so Windows
+# Git (core.autocrlf=true) stops converting them and Prettier's LF rule holds.
+* text=auto eol=lf
+
+*.png binary
+*.jpg binary
+*.jpeg binary

@@ -1,0 +1,91 @@
+{
+  "expo": {
+    "name": "FitTracker",
+    "slug": "fittracker",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "fittracker",
+    "userInterfaceStyle": "automatic",
+    "ios": {
+      "bundleIdentifier": "com.fittracker.app"
+    },
+    "android": {
+      "package": "com.fittracker.app",
+      "adaptiveIcon": {
+        "backgroundColor": "#111214",
+        "foregroundImage": "./assets/images/android-icon-foreground.png",
+        "monochromeImage": "./assets/images/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false,
+      "allowBackup": false,
+      "blockedPermissions": [
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        "android.permission.RECORD_AUDIO",
+        "android.permission.ACCESS_BACKGROUND_LOCATION",
+        "android.permission.SYSTEM_ALERT_WINDOW"
+      ],
+      "permissions": [
+        "android.permission.SCHEDULE_EXACT_ALARM"
+      ]
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#F2F3F5",
+          "image": "./assets/images/splash-icon.png",
+          "imageWidth": 96,
+          "dark": {
+            "backgroundColor": "#111214",
+            "image": "./assets/images/splash-icon-dark.png"
+          }
+        }
+      ],
+      "expo-secure-store",
+      [
+        "expo-navigation-bar",
+        {
+          "enforceContrast": false
+        }
+      ],
+      "@maplibre/maplibre-react-native",
+      "expo-image",
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "FitTracker uses your location only while you record a run, walk or ride.",
+          "isAndroidBackgroundLocationEnabled": false
+        }
+      ],
+      "expo-font",
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/images/notification-icon.png",
+          "color": "#1F5FBF"
+        }
+      ],
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "buildArchs": ["armeabi-v7a", "arm64-v8a", "x86_64"]
+          }
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true,
+      "reactCompiler": true
+    },
+    "extra": {
+      "eas": {
+        "projectId": "3c6fecb0-fc6d-4353-8aa3-8e49c4f6608e"
+      }
+    },
+    "owner": "jamiil18s-team"
+  }
+}
