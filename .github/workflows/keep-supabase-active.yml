@@ -1,0 +1,30 @@
+name: Keep Supabase active
+
+# Supabase pauses free projects after a week with little database activity. One
+# small request a day keeps this project awake, so the app still works when it is
+# marked. heartbeat() returns the current time and reads no user data.
+on:
+  schedule:
+    # 03:17 UTC (07:17 in Mauritius). Off the hour, because GitHub delays
+    # scheduled runs that start on the hour when it is busy.
+    - cron: '17 3 * * *'
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  heartbeat:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Call the heartbeat function
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_PUBLISHABLE_KEY: ${{ secrets.SUPABASE_PUBLISHABLE_KEY }}
+        run: |
+          curl --fail-with-body --silent --show-error \
+            --retry 3 --retry-delay 30 --retry-all-errors \
+            -X POST "$SUPABASE_URL/rest/v1/rpc/heartbeat" \
+            -H "apikey: $SUPABASE_PUBLISHABLE_KEY" \
+            -H "Content-Type: application/json" \
+            -d '{}'
